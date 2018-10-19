@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 from .forms import PostFormulario
@@ -58,5 +58,8 @@ def posts_actualizar(request, pk):
     }
     return render(request, "crear.html", context)
 
-def posts_eliminar(request):
-    return HttpResponse("<h1>Hola a eliminar</h1>")
+def posts_eliminar(request, pk=None):
+    instance = get_object_or_404(Post, pk=pk)
+    instance.delete()
+    # return redirect("posts:index")
+    return HttpResponseRedirect('/posts/')
