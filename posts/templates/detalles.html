@@ -7,12 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Template {{titulo}}</h1>
-
-    {% for obj in lista %}
-   <a href="{% url 'detalle' obj.pk %}"> {{obj.pk}} </a> <br>
-    {{obj.titulo}}<br>
-    {{obj.contenido}}<br>
-    {% endfor %}
+<h1>{{titulo}}</h1>
+<br>
+{{info.pk}}<br>
+{{info.titulo}}<br>
+{{info.contenido}}<br>
+{{info.publicado}}
 </body>
 </html>

@@ -7,12 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Template {{titulo}}</h1>
+    <form method="POST" action="">{% csrf_token %}
+        {{formulario.as_p}}
+        <input type="submit" value="Crear Post">
+    </form>
 
-    {% for obj in lista %}
-   <a href="{% url 'detalle' obj.pk %}"> {{obj.pk}} </a> <br>
-    {{obj.titulo}}<br>
-    {{obj.contenido}}<br>
-    {% endfor %}
 </body>
 </html>
